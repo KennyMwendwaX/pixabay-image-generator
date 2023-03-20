@@ -7,11 +7,12 @@ function Home() {
   const [images, setImages] = useState<Image[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [term, setTerm] = useState("")
-  const API_KEY: string = import.meta.env.VITE_PIXABAY_API_KEY
 
   useEffect(() => {
     fetch(
-      `https://pixabay.com/api/?key=${API_KEY}&q=${term}&image_type=photo&pretty=true`
+      `https://pixabay.com/api/?key=${
+        import.meta.env.VITE_PIXABAY_API_KEY
+      }&q=${term}&image_type=photo&pretty=true`
     )
       .then((res) => res.json())
       .then((data) => {
